@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EchoCal - Twój Głos, Twoja Dieta</title>
+    <title>EchoCal - Dokumentacja Prawna</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #FFFFFF;
             --text: #000000;
-            --text-secondary: #636366;
-            --accent: #000000; /* Zmieniono z niebieskiego na czarny */
-            --surface: #F9F9F9;
-            --border: #E5E5E5;
+            --text-secondary: #8E8E93;
+            --surface: #F2F2F7;
+            --border: #E5E5EA;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,185 +22,108 @@
             font-family: 'Outfit', -apple-system, sans-serif;
             background-color: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
             -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 120px 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .legal-card {
+            background-color: #FFFFFF;
+            padding: 60px 40px;
+            border-radius: 40px;
             text-align: center;
+            max-width: 450px;
+            width: 100%;
+            border: 1px solid var(--border);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.05);
         }
 
-        /* --- Header Section --- */
-        .icon-box {
-            width: 80px;
-            height: 80px;
+        .icon-top {
+            width: 60px;
+            height: 60px;
             background-color: var(--surface);
-            border-radius: 20px;
-            margin-bottom: 40px;
+            border-radius: 18px;
+            margin: 0 auto 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent);
-            border: 1px solid var(--border);
+            color: var(--text);
         }
 
         h1 {
-            font-size: clamp(48px, 10vw, 84px);
+            font-size: 32px;
             font-weight: 800;
-            letter-spacing: -3px;
-            line-height: 1;
-            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
         }
 
-        .hero-desc {
-            font-size: clamp(18px, 4vw, 24px);
+        p {
             color: var(--text-secondary);
-            max-width: 650px;
-            margin-bottom: 56px;
-            font-weight: 400;
+            font-size: 16px;
+            margin-bottom: 40px;
         }
 
-        .cta-action {
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .legal-btn {
+            background-color: var(--surface);
+            color: var(--text);
+            padding: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .legal-btn:hover {
+            background-color: #EBEBEF;
+            border-color: var(--border);
+            transform: scale(1.02);
+        }
+
+        .legal-btn.primary {
             background-color: var(--text);
             color: #FFF;
-            padding: 20px 50px;
-            border-radius: 100px;
-            font-weight: 800;
-            font-size: 18px;
-            text-decoration: none;
-            transition: all 0.2s ease;
         }
 
-        .cta-action:hover {
+        .legal-btn.primary:hover {
+            background-color: #1c1c1e;
             transform: scale(1.02);
-            opacity: 0.95;
         }
 
-        /* --- Clean Marketing Grid --- */
-        .marketing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 100px;
-            width: 100%;
-        }
-
-        .m-item {
-            padding: 40px;
-            background: var(--surface);
-            border-radius: 32px;
-            border: 1px solid var(--border);
-            text-align: left;
-        }
-
-        .m-icon {
-            margin-bottom: 24px;
-            color: var(--accent);
-        }
-
-        .m-item h3 {
-            font-size: 24px;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .m-item p {
-            font-size: 16px;
-            color: var(--text-secondary);
-        }
-
-        /* --- Footer --- */
-        footer {
-            margin-top: 160px;
-            padding: 60px 24px;
-            border-top: 1px solid var(--border);
-            width: 100%;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover { color: var(--text); }
-
-        .tagline {
-            color: #DDD;
-            font-size: 14px;
+        .copyright {
+            margin-top: 40px;
+            color: #CCC;
+            font-size: 12px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            font-weight: 800;
-        }
-
-        @media (max-width: 600px) {
-            .container { padding: 80px 20px; }
-            .m-item { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <div class="icon-box">
-            <!-- Ikona mikrofonu, teraz w 100% czarna -->
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+    <div class="legal-card">
+        <div class="icon-top">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+        </div>
+        <h1>EchoCal</h1>
+        <p>Dokumentacja prawna i warunki korzystania z aplikacji.</p>
+
+        <div class="btn-group">
+            <a href="privacy.html" class="legal-btn primary">Polityka Prywatności</a>
+            <a href="terms.html" class="legal-btn">Regulamin Użytkowania</a>
         </div>
 
-        <h1>Mówisz, EchoCal liczy.</h1>
-        <p class="hero-desc">Poznaj najprostszy sposób na logowanie diety. Wypowiedz to co jesz, a nasza Sztuczna Inteligencja rozpozna resztę. Bez wpisywania, bez szukania, bez tracenia czasu.</p>
-
-        <a href="mailto:echocalapp@gmail.com" class="cta-action">Zacznij śledzić dietę głosem</a>
-
-        <div class="marketing-grid">
-            <div class="m-item">
-                <div class="m-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
-                </div>
-                <h3>Głosowa Rewolucja</h3>
-                <p>Nagraj posiłek w kilka sekund. EchoCal rozumie składy i gramatury, automatycznie wypełniając Twój dziennik.</p>
-            </div>
-            <div class="m-item">
-                <div class="m-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.1a2 2 0 0 0-1.35 1.58l-1.6 6.3a1 1 0 0 0 1.17 1.23l6.4-1c.54-.08 1.05-.36 1.45-.77L21 8.5a2.83 2.83 0 1 0-4-4l-11.9 12a1.91 1.91 0 0 0-.55 1.2L4 20l.4-2.3c.03-.2.1-.38.2-.55l11-11a2.83 2.83 0 0 1 4 4l-11.9 12"/></svg>
-                </div>
-                <h3>Skaner kodów</h3>
-                <p>W darmowej wersji EchoCal masz szybki skaner kodów kreskowych, który błyskawicznie rozpoznaje produkty ze sklepu.</p>
-            </div>
-            <div class="m-item">
-                <div class="m-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
-                </div>
-                <h3>Prywatność</h3>
-                <p>Twoje dane są w pełni bezpieczne. Wykorzystujemy Supabase do szyfrowania i przechowywania Twoich postępów.</p>
-            </div>
-        </div>
-
-        <footer>
-            <div class="footer-links">
-                <a href="privacy.html">Prywatność</a>
-                <a href="terms.html">Regulamin</a>
-                <a href="mailto:echocalapp@gmail.com">Kontakt</a>
-            </div>
-            <div class="tagline">EchoCal 2026</div>
-        </footer>
-
+        <div class="copyright">EchoCal 2026</div>
     </div>
 
 </body>
