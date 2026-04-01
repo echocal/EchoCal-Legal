@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoCal - Twój Głos, Twoja Dieta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffffff;
+            --secondary: #86868B;
+            --accent: #30D158; /* Apple Health Green */
+            --bg: #000000;
+            --card-bg: rgba(28, 28, 30, 0.6);
+            --border: rgba(255, 255, 255, 0.08);
+            --blur: 20px;
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--primary);
+            line-height: 1.5;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Background Decoration --- */
+        .gradient-blur {
+            position: fixed;
+            top: -10%; right: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(48, 209, 88, 0.1) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+            filter: blur(80px);
+        }
+
+        /* --- Header / Hero --- */
+        header {
+            height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center; padding: 20px;
+            position: relative;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.05);
+            padding: 10px 20px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: 1px solid var(--border);
+            margin-bottom: 24px;
+            color: var(--accent);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: clamp(54px, 12vw, 100px);
+            font-weight: 800;
+            letter-spacing: -4px;
+            line-height: 0.95;
+            margin-bottom: 24px;
+            background: linear-gradient(180deg, #FFFFFF 0%, #999999 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        p.hero-sub {
+            font-size: clamp(18px, 4vw, 24px);
+            color: var(--secondary);
+            max-width: 650px;
+            margin-bottom: 50px;
+            font-weight: 400;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .cta-btn {
+            background: var(--primary);
+            color: var(--bg);
+            padding: 22px 56px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 18px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.1);
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 15px 40px rgba(255,255,255,0.2);
+        }
+
+        /* --- Grid Section --- */
+        section {
+            padding: 100px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 48px;
+            border-radius: 40px;
+            backdrop-filter: blur(var(--blur));
+            transition: all 0.5s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(255,255,255,0.15);
+            background: rgba(40, 40, 42, 0.6);
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 26px; font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .card p {
+            color: var(--secondary);
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 100px 24px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: linear-gradient(to bottom, #000, #050505);
+        }
+
+        .footer-nav {
+            display: flex; justify-content: center;
+            gap: 40px; margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: var(--primary);
+        }
+
+        .copy {
+            color: #444;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { letter-spacing: -2px; }
+            .card { padding: 32px; }
+            .footer-nav { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gradient-blur"></div>
+
+    <header>
+        <div class="badge">Sztuczna Inteligencja w kuchni</div>
+        <h1>EchoCal.</h1>
+        <p class="hero-sub">Policz kalorie tak szybko, jak o nich mówisz. Powiedz co zjadłeś, a resztę zrobi AI.</p>
+        <a href="mailto:echocalapp@gmail.com" class="cta-btn">Zapisz się do Bety</a>
+    </header>
+
+    <section id="features">
+        <div class="grid">
+            <div class="card">
+                <span class="card-icon">🎙️</span>
+                <h3>Najszybsze Logowanie</h3>
+                <p>Nigdy więcej nie szukaj składników ręcznie. Po prostu wypowiedz posiłek, a nasz system rozpozna produkty i ich gramaturę.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">⚡</span>
+                <h3>Instant Insight</h3>
+                <p>Zyskaj błyskawiczną analizę makroskładników i kcal Twojego posiłku zaraz po wypowiedzeniu go.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">⚙️</span>
+                <h3>Pełna Prywatność</h3>
+                <p>Twoje nagrania są przetwarzane bezpiecznie i nigdy nie są wykorzystywane do celów reklamowych.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <nav class="footer-nav">
+            <a href="privacy.html">Polityka Prywatności</a>
+            <a href="terms.html">Regulamin</a>
+            <a href="mailto:echocalapp@gmail.com">Kontakt wsparcia</a>
+        </nav>
+        <p class="copy">© 2026 EchoCal. Crafted with precision for health & privacy.</p>
+    </footer>
+
+</body>
+</html>
