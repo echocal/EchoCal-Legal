@@ -3,367 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EchoCal - Twój Głos, Twoja Dieta</title>
+    <title>EchoCal - Twoja Dieta, Twój Głos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Jasne kolory z Twojej aplikacji (lightTheme) */
             --bg: #FFFFFF;
-            --surface: #F2F2F7;
-            --card: #FFFFFF;
-            --text: #000000;
+            --text: #1C1C1E;
             --text-secondary: #8E8E93;
             --accent: #007AFF;
-            --success: #34C759;
-            --warning: #FFD60A;
-            --border: #C6C6C8;
-            --divider: #E5E5EA;
-            --shadow: rgba(0, 0, 0, 0.05);
+            --surface: #F2F2F7;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Outfit', -apple-system, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        /* --- Dekoracje Tła --- */
-        .bg-glow {
-            position: fixed;
-            width: 800px;
-            height: 800px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 122, 255, 0.03) 0%, rgba(255,255,255,0) 70%);
-            top: -200px;
-            right: -200px;
-            z-index: -1;
-            filter: blur(80px);
-        }
-
-        /* --- Header --- */
-        header {
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 40px 20px;
             text-align: center;
-            background: linear-gradient(180deg, #F9F9FB 0%, #FFFFFF 100%);
         }
 
-        .app-icon {
-            width: 84px;
-            height: 84px;
-            background: var(--card);
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 24px;
+        }
+
+        /* --- Logo Area --- */
+        .icon-circle {
+            width: 70px;
+            height: 70px;
+            background-color: var(--surface);
             border-radius: 20px;
-            margin-bottom: 28px;
+            margin: 0 auto 30px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            border: 1px solid var(--divider);
-            box-shadow: 0 10px 30px var(--shadow);
-        }
-
-        .mic-icon-svg {
-            width: 36px;
-            height: 36px;
+            justify-content: center;
             color: var(--accent);
         }
 
         h1 {
-            font-size: clamp(48px, 10vw, 80px);
+            font-size: clamp(40px, 8vw, 64px);
             font-weight: 800;
-            letter-spacing: -3px;
-            line-height: 0.95;
+            letter-spacing: -2px;
             margin-bottom: 20px;
-            color: var(--text);
         }
 
-        header p {
-            font-size: clamp(18px, 3.5vw, 22px);
+        p.hero-text {
+            font-size: 20px;
             color: var(--text-secondary);
-            max-width: 650px;
-            margin-bottom: 45px;
-            font-weight: 400;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .cta-button {
+        .cta-btn {
             background-color: var(--text);
-            color: var(--bg);
-            padding: 22px 50px;
+            color: #FFF;
+            padding: 18px 40px;
             border-radius: 100px;
-            font-size: 18px;
             font-weight: 700;
+            font-size: 17px;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            display: inline-block;
+            transition: transform 0.2s;
         }
 
-        .cta-button:hover {
-            transform: scale(1.03) translateY(-2px);
-            box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+        .cta-btn:hover { transform: scale(1.03); }
+
+        /* --- Simple Features --- */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
         }
 
-        /* --- Mockup (Jasny) --- */
-        .mockup-container {
-            width: 100%;
-            max-width: 460px;
-            margin: -60px auto 60px;
-            padding: 20px;
-        }
-
-        .mockup {
-            background: var(--card);
-            border: 10px solid #FFFFFF;
-            border-radius: 44px;
-            padding: 24px;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.06), 0 0 0 1px var(--divider);
-            aspect-ratio: 9/19;
+        .feat-item {
             display: flex;
             flex-direction: column;
-            gap: 16px;
-        }
-
-        .mockup-header {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
         }
 
-        .mockup-streak {
-            background: rgba(255,100,0,0.08);
-            padding: 6px 14px;
-            border-radius: 100px;
-            font-size: 12px;
-            color: #FF5E00;
-            font-weight: 700;
-        }
-
-        .mockup-card {
-            background: #FFFFFF;
-            border: 1px solid var(--divider);
-            border-radius: 22px;
-            padding: 24px;
-            box-shadow: 0 4px 15px var(--shadow);
-        }
-
-        .mockup-bars {
-            height: 6px;
-            background: var(--surface);
-            border-radius: 3px;
-            overflow: hidden;
-            margin: 14px 0;
-            display: flex;
-        }
-
-        .mockup-bar-fill { height: 100%; transition: width 1s ease; }
-
-        .mockup-mic-btn {
-            height: 70px;
-            background: var(--accent);
-            border-radius: 35px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: auto;
-            box-shadow: 0 10px 25px rgba(0, 122, 255, 0.3);
-        }
-
-        /* --- Features --- */
-        .features {
-            padding: 80px 20px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .feature-card {
-            background: var(--surface);
-            padding: 40px;
-            border-radius: 32px;
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            background: #FFFFFF;
-            border-color: var(--divider);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px var(--shadow);
-        }
-
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(0, 122, 255, 0.1);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
+        .feat-icon {
             color: var(--accent);
+            margin-bottom: 15px;
         }
 
-        .feature-card h3 {
-            font-size: 24px;
-            margin-bottom: 12px;
+        .feat-item h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
             font-weight: 700;
         }
 
-        .feature-card p {
+        .feat-item p {
+            font-size: 15px;
             color: var(--text-secondary);
-            font-size: 16px;
-            line-height: 1.6;
         }
 
         /* --- Footer --- */
         footer {
-            padding: 100px 20px;
-            text-align: center;
-            background-color: var(--surface);
-            border-top: 1px solid var(--divider);
+            margin-top: 120px;
+            padding: 40px 0;
+            border-top: 1px solid #E5E5EA;
         }
 
-        .footer-nav {
+        .links {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 20px;
         }
 
-        .footer-nav a {
+        .links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .footer-nav a:hover {
-            color: var(--text);
-        }
-
-        .copyright {
-            color: var(--text-secondary);
             font-size: 14px;
-            opacity: 0.6;
+            font-weight: 600;
         }
 
-        @media (max-width: 768px) {
-            h1 { font-size: 48px; }
-            .mockup-container { margin-top: 20px; }
-            .feature-card { padding: 30px; }
+        .links a:hover { color: var(--text); }
+
+        .copy { color: #BBB; font-size: 12px; }
+
+        @media (max-width: 600px) {
+            .container { padding: 60px 20px; }
+            h1 { font-size: 40px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow"></div>
-
-    <header>
-        <div class="app-icon">
-            <svg class="mic-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
-        </div>
-        <h1>EchoCal.</h1>
-        <p>Najszybszy sposób na śledzenie diety. Mówisz, co zjadłeś, a my robimy resztę. Bez zbędnego pisania.</p>
+    <div class="container">
         
-        <a href="mailto:echocalapp@gmail.com" class="cta-button">
-            Wyskocz po PRO
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-        </a>
-    </header>
+        <div class="icon-circle">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+        </div>
 
-    <div class="mockup-container">
-        <div class="mockup">
-            <div class="mockup-header">
-                <span class="mockup-streak">🔥 14 DNI</span>
-                <div style="width: 28px; height: 28px; background: #F2F2F7; border-radius: 14px; border: 1px solid #E5E5EA;"></div>
-            </div>
-            <div style="font-size: 12px; color: var(--text-secondary); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px;">Dzisiejszy bilans</div>
-            <div class="mockup-card">
-                <div style="font-size: 32px; font-weight: 800; color: #000;">1,420 <span style="font-size: 14px; color: var(--text-secondary); font-weight: 400;">kcal</span></div>
-                <div class="mockup-bars">
-                    <div class="mockup-bar-fill" style="width: 35%; background: var(--text);"></div>
-                    <div class="mockup-bar-fill" style="width: 40%; background: var(--success);"></div>
-                    <div class="mockup-bar-fill" style="width: 25%; background: var(--warning);"></div>
+        <h1>EchoCal.</h1>
+        <p class="hero-text">Najprostszy sposób na Twoją dietę. Powiedz co zjesz, a Twoje kalorie policzą się same. Bez zbędnych tabel, bez wpisywania ręcznie.</p>
+
+        <a href="mailto:echocalapp@gmail.com" class="cta-btn">Zapisz się do Bety</a>
+
+        <div class="features">
+            <div class="feat-item">
+                <div class="feat-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                 </div>
-                <div style="display: flex; gap: 12px; font-size: 12px; color: var(--text-secondary); font-weight: 600;">
-                    <span>140g P</span>
-                    <span>210g C</span>
-                    <span>55g F</span>
-                </div>
+                <h3>Szybkość</h3>
+                <p>Nagraj posiłek w 3 sekundy.</p>
             </div>
-            <div style="flex: 1; display: flex; flex-direction: column; gap: 12px; margin-top: 10px;">
-                <div style="height: 65px; background: #F9F9FB; border: 1px solid var(--divider); border-radius: 18px; display: flex; align-items: center; padding: 15px;">
-                    <div style="width: 34px; height: 34px; background: rgba(0, 122, 255, 0.1); border-radius: 17px; margin-right: 14px;"></div>
-                    <div style="flex: 1;">
-                        <div style="width: 80px; height: 8px; background: var(--divider); border-radius: 4px; margin-bottom: 6px;"></div>
-                        <div style="width: 40px; height: 6px; background: #EEE; border-radius: 3px;"></div>
-                    </div>
+            <div class="feat-item">
+                <div class="feat-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.5 4.428 6 1.428 1 2.572 2 2.572 3.5a4.001 4.001 0 1 1-8 0Z"/><path d="M11 22a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/></svg>
                 </div>
+                <h3>Nawyki</h3>
+                <p>Buduj serię dni z EchoCal.</p>
             </div>
-            <div class="mockup-mic-btn">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+            <div class="feat-item">
+                <div class="feat-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+                </div>
+                <h3>Prywatność</h3>
+                <p>Twoje dane są u nas bezpieczne.</p>
             </div>
         </div>
+
+        <footer>
+            <div class="links">
+                <a href="privacy.html">Prywatność</a>
+                <a href="terms.html">Regulamin</a>
+                <a href="mailto:echocalapp@gmail.com">Kontakt</a>
+            </div>
+            <p class="copy">© 2026 EchoCal.</p>
+        </footer>
+
     </div>
-
-    <section class="features">
-        <div class="feature-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
-                </div>
-                <h3>Dyrektor Twojego żołądka</h3>
-                <p>Nasz algorytm uczy się Twojej mowy i składników, aby z każdym dniem logowanie posiłków było jeszcze szybsze.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.1a2 2 0 0 0-1.35 1.58l-1.6 6.3a1 1 0 0 0 1.17 1.23l6.4-1c.54-.08 1.05-.36 1.45-.77L21 8.5a2.83 2.83 0 1 0-4-4l-11.9 12a1.91 1.91 0 0 0-.55 1.2L4 20l.4-2.3c.03-.2.1-.38.2-.55l11-11a2.83 2.83 0 0 1 4 4l-11.9 12"/></svg>
-                </div>
-                <h3>Skaner kodów</h3>
-                <p>Uzupełnij posiłki o produkty ze sklepu za pomocą skanera kodów kreskowych zintegrowanego z ogromną bazą produktów.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                </div>
-                <h3>Intuicyjne statystyki</h3>
-                <p>Śledź swoje równe tempo. EchoCal wizualizuje Twoje postępy wagi i kcal w czytelny i czysty sposób.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <nav class="footer-nav">
-            <a href="privacy.html">Polityka Prywatności</a>
-            <a href="terms.html">Regulamin</a>
-            <a href="mailto:echocalapp@gmail.com">Kontakt</a>
-        </nav>
-        <p class="copyright">© 2026 EchoCal. Czysta forma, czysta dieta.</p>
-    </footer>
 
 </body>
 </html>
+
