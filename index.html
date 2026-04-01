@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EchoCal - Twoja Dieta, Twój Głos</title>
+    <title>EchoCal - Twój Głos, Twoja Dieta</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #FFFFFF;
-            --text: #1C1C1E;
-            --text-secondary: #8E8E93;
-            --accent: #007AFF;
-            --surface: #F2F2F7;
+            --text: #000000;
+            --text-secondary: #636366;
+            --accent: #000000; /* Zmieniono z niebieskiego na czarny */
+            --surface: #F9F9F9;
+            --border: #E5E5E5;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,116 +25,133 @@
             color: var(--text);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            text-align: center;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 100px 24px;
+            padding: 120px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
-        /* --- Logo Area --- */
-        .icon-circle {
-            width: 70px;
-            height: 70px;
+        /* --- Header Section --- */
+        .icon-box {
+            width: 80px;
+            height: 80px;
             background-color: var(--surface);
             border-radius: 20px;
-            margin: 0 auto 30px;
+            margin-bottom: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--accent);
+            border: 1px solid var(--border);
         }
 
         h1 {
-            font-size: clamp(40px, 8vw, 64px);
+            font-size: clamp(48px, 10vw, 84px);
             font-weight: 800;
-            letter-spacing: -2px;
-            margin-bottom: 20px;
+            letter-spacing: -3px;
+            line-height: 1;
+            margin-bottom: 24px;
         }
 
-        p.hero-text {
-            font-size: 20px;
+        .hero-desc {
+            font-size: clamp(18px, 4vw, 24px);
             color: var(--text-secondary);
-            margin-bottom: 50px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 650px;
+            margin-bottom: 56px;
+            font-weight: 400;
         }
 
-        .cta-btn {
+        .cta-action {
             background-color: var(--text);
             color: #FFF;
-            padding: 18px 40px;
+            padding: 20px 50px;
             border-radius: 100px;
-            font-weight: 700;
-            font-size: 17px;
+            font-weight: 800;
+            font-size: 18px;
             text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s;
+            transition: all 0.2s ease;
         }
 
-        .cta-btn:hover { transform: scale(1.03); }
+        .cta-action:hover {
+            transform: scale(1.02);
+            opacity: 0.95;
+        }
 
-        /* --- Simple Features --- */
-        .features {
+        /* --- Clean Marketing Grid --- */
+        .marketing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            margin-top: 80px;
+            margin-top: 100px;
+            width: 100%;
         }
 
-        .feat-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .m-item {
+            padding: 40px;
+            background: var(--surface);
+            border-radius: 32px;
+            border: 1px solid var(--border);
+            text-align: left;
         }
 
-        .feat-icon {
+        .m-icon {
+            margin-bottom: 24px;
             color: var(--accent);
-            margin-bottom: 15px;
         }
 
-        .feat-item h3 {
-            font-size: 20px;
-            margin-bottom: 8px;
+        .m-item h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
-        .feat-item p {
-            font-size: 15px;
+        .m-item p {
+            font-size: 16px;
             color: var(--text-secondary);
         }
 
         /* --- Footer --- */
         footer {
-            margin-top: 120px;
-            padding: 40px 0;
-            border-top: 1px solid #E5E5EA;
+            margin-top: 160px;
+            padding: 60px 24px;
+            border-top: 1px solid var(--border);
+            width: 100%;
         }
 
-        .links {
+        .footer-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
+            gap: 40px;
+            margin-bottom: 30px;
         }
 
-        .links a {
+        .footer-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 600;
+            transition: color 0.2s;
         }
 
-        .links a:hover { color: var(--text); }
+        .footer-links a:hover { color: var(--text); }
 
-        .copy { color: #BBB; font-size: 12px; }
+        .tagline {
+            color: #DDD;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
 
         @media (max-width: 600px) {
-            .container { padding: 60px 20px; }
-            h1 { font-size: 40px; }
+            .container { padding: 80px 20px; }
+            .m-item { padding: 30px; }
         }
     </style>
 </head>
@@ -141,50 +159,50 @@
 
     <div class="container">
         
-        <div class="icon-circle">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+        <div class="icon-box">
+            <!-- Ikona mikrofonu, teraz w 100% czarna -->
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
         </div>
 
-        <h1>EchoCal.</h1>
-        <p class="hero-text">Najprostszy sposób na Twoją dietę. Powiedz co zjesz, a Twoje kalorie policzą się same. Bez zbędnych tabel, bez wpisywania ręcznie.</p>
+        <h1>Mówisz, EchoCal liczy.</h1>
+        <p class="hero-desc">Poznaj najprostszy sposób na logowanie diety. Wypowiedz to co jesz, a nasza Sztuczna Inteligencja rozpozna resztę. Bez wpisywania, bez szukania, bez tracenia czasu.</p>
 
-        <a href="mailto:echocalapp@gmail.com" class="cta-btn">Zapisz się do Bety</a>
+        <a href="mailto:echocalapp@gmail.com" class="cta-action">Zacznij śledzić dietę głosem</a>
 
-        <div class="features">
-            <div class="feat-item">
-                <div class="feat-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <div class="marketing-grid">
+            <div class="m-item">
+                <div class="m-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
                 </div>
-                <h3>Szybkość</h3>
-                <p>Nagraj posiłek w 3 sekundy.</p>
+                <h3>Głosowa Rewolucja</h3>
+                <p>Nagraj posiłek w kilka sekund. EchoCal rozumie składy i gramatury, automatycznie wypełniając Twój dziennik.</p>
             </div>
-            <div class="feat-item">
-                <div class="feat-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.5 4.428 6 1.428 1 2.572 2 2.572 3.5a4.001 4.001 0 1 1-8 0Z"/><path d="M11 22a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/></svg>
+            <div class="m-item">
+                <div class="m-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13.1a2 2 0 0 0-1.35 1.58l-1.6 6.3a1 1 0 0 0 1.17 1.23l6.4-1c.54-.08 1.05-.36 1.45-.77L21 8.5a2.83 2.83 0 1 0-4-4l-11.9 12a1.91 1.91 0 0 0-.55 1.2L4 20l.4-2.3c.03-.2.1-.38.2-.55l11-11a2.83 2.83 0 0 1 4 4l-11.9 12"/></svg>
                 </div>
-                <h3>Nawyki</h3>
-                <p>Buduj serię dni z EchoCal.</p>
+                <h3>Skaner kodów</h3>
+                <p>W darmowej wersji EchoCal masz szybki skaner kodów kreskowych, który błyskawicznie rozpoznaje produkty ze sklepu.</p>
             </div>
-            <div class="feat-item">
-                <div class="feat-icon">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+            <div class="m-item">
+                <div class="m-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
                 </div>
                 <h3>Prywatność</h3>
-                <p>Twoje dane są u nas bezpieczne.</p>
+                <p>Twoje dane są w pełni bezpieczne. Wykorzystujemy Supabase do szyfrowania i przechowywania Twoich postępów.</p>
             </div>
         </div>
 
         <footer>
-            <div class="links">
+            <div class="footer-links">
                 <a href="privacy.html">Prywatność</a>
                 <a href="terms.html">Regulamin</a>
                 <a href="mailto:echocalapp@gmail.com">Kontakt</a>
             </div>
-            <p class="copy">© 2026 EchoCal.</p>
+            <div class="tagline">EchoCal 2026</div>
         </footer>
 
     </div>
 
 </body>
 </html>
-
