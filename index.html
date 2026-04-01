@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EchoCal - Twoja Inteligenta Dieta Głosowa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffffff;
+            --secondary: #8E8E93;
+            --accent: #30D158;
+            --bg: #000000;
+            --card-bg: rgba(28, 28, 30, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Header --- */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: radial-gradient(circle at 50% 50%, rgba(20, 20, 20, 1) 0%, rgba(0,0,0,1) 100%);
+        }
+
+        .logo-container {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2c2c2c 0%, #000000 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .logo-inner {
+            width: 30px;
+            height: 30px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--accent);
+        }
+
+        h1 {
+            font-size: clamp(48px, 10vw, 84px);
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 16px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .highlight {
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: clamp(18px, 4vw, 22px);
+            color: var(--secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
+            font-weight: 400;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            animation: fadeIn 1.4s ease-out;
+        }
+
+        .btn {
+            padding: 18px 36px;
+            border-radius: 100px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--bg);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255,255,255,0.2);
+        }
+
+        .btn-secondary {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            color: var(--primary);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        /* --- Features --- */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 32px;
+            backdrop-filter: blur(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--secondary);
+            font-size: 16px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background-color: #050505;
+        }
+
+        footer nav {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: #444;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 60px; }
+            section { padding: 60px 20px; }
+            .cta-group { flex-direction: column; width: 100%; max-width: 300px; }
+            .btn { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo-inner"></div>
+        </div>
+        <h1>Echo<span class="highlight">Cal</span></h1>
+        <p>Policz kalorie tak szybko, jak o nich myślisz. Wypowiedz posiłek, a resztę zrobi nasza Sztuczna Inteligencja.</p>
+        
+        <div class="cta-group">
+            <a href="#" class="btn btn-primary">Pobierz wkrótce</a>
+            <a href="#features" class="btn btn-secondary">Zobacz funkcje</a>
+        </div>
+    </header>
+
+    <section id="features">
+        <div class="section-title">
+            <h2>Dlaczego EchoCal?</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <span class="card-icon">🎙️</span>
+                <h3>Diktat Dietetyczny</h3>
+                <p>Nigdy więcej ręcznego wpisywania każdego składnika. Powiedz "Kanapka z jajkiem i dwa jabłka", a EchoCal rozpozna wagę i makroskładniki.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">📊</span>
+                <h3>Inteligentne Statystyki</h3>
+                <p>Śledź swoje równe tempo. Nasz system analizuje trendy Twojej wagi i kcal, abyś zawsze wiedział, jak blisko jesteś celu.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🏗️</span>
+                <h3>Minimalizm</h3>
+                <p>Zaprojektowany, aby nie przeszkadzać. Ciemny motyw, płynne animacje i brak zbędnych komunikatów. Tylko Ty i Twoje zdrowie.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🛡️</span>
+                <h3>Twoje Dane Są Bezpieczne</h3>
+                <p>Używamy zaawansowanych zabezpieczeń Supabase. Twoja historia posiłków jest prywatna i dostępna tylko dla Ciebie.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">📷</span>
+                <h3>Skaner Kodów</h3>
+                <p>Gdy nie chcesz mówić, po prostu zeskanuj opakowanie. Błyskawiczna baza produktów pomoże Ci uzupełnić dziennik.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🔥</span>
+                <h3>Passy (Streaks)</h3>
+                <p>Buduj zdrowe nawyki. Nasz system motywacyjny nagradza Cię za regularność w prowadzeniu dziennika.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <nav>
+            <a href="privacy.html">Polityka Prywatności</a>
+            <a href="terms.html">Regulamin</a>
+            <a href="mailto:echocalapp@gmail.com">Kontakt</a>
+        </nav>
+        <p class="copyright">© 2026 EchoCal. Crafted with precision for health enthusiasts.</p>
+    </footer>
+
+</body>
+</html>
