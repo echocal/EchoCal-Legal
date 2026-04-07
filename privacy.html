@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polityka Prywatności - EchoCal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #000000;
+            --secondary: #8E8E93;
+            --bg: #F2F2F7;
+            --card: #FFFFFF;
+            --text: #1C1C1E;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background-color: var(--card);
+            padding: 50px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary);
+            margin-top: 40px;
+            border-bottom: 1px solid #E5E5EA;
+            padding-bottom: 8px;
+        }
+        p, li {
+            font-size: 16px;
+            color: #3A3A3C;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--secondary);
+        }
+        a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Polityka Prywatności</h1>
+        
+        <p>Twoja prywatność jest naszym priorytetem. Niniejsza Polityka Prywatności wyjaśnia, w jaki sposób zbieramy, wykorzystujemy i chronimy Twoje dane osobowe w aplikacji <span class="highlight">EchoCal</span>.</p>
+
+        <h2>1. Administrator Danych</h2>
+        <p>Administratorem Twoich danych jest twórca aplikacji EchoCal. Kontakt: <a href="mailto:echocalapp@gmail.com">echocalapp@gmail.com</a>.</p>
+
+        <h2>2. Jakie dane zbieramy i w jakim celu?</h2>
+        <ul>
+            <li><span class="highlight">Dane konta:</span> E-mail, imię/nick (używane przez Supabase do uwierzytelniania).</li>
+            <li><span class="highlight">Parametry ciała:</span> Waga, wzrost, wiek, poziom aktywności – niezbędne do obliczeń dietetycznych (podstawa prawna: wykonanie usługi).</li>
+            <li><span class="highlight">Dane głosowe i tekstowe:</span> Krótkie nagrania audio oraz opisy tekstowe posiłków. Dane te są przetwarzane wyłącznie w celu transkrypcji i analizy wartości odżywczych Twojego posiłku.</li>
+            <li><span class="highlight">Dane z aparatu:</span> Skanowanie kodów kreskowych (przetwarzane lokalnie, obrazy nie są zapisywane).</li>
+            <li><span class="highlight">Dane reklamowe:</span> IDFA (iOS) / AAID (Android) zbierane przez Google AdMob w celu personalizacji reklam (po uzyskaniu Twojej zgody).</li>
+            <li><span class="highlight">Dane techniczne:</span> Logi błędów zbierane przez Sentry w celu zapewnienia stabilności aplikacji.</li>
+        </ul>
+
+        <h2>3. Udostępnianie danych stronom trzecim (Usługi AI)</h2>
+        <p>EchoCal korzysta z zewnętrznych dostawców sztucznej inteligencji (AI), aby umożliwić analizę posiłków. Dane przesyłane do tych usług to wyłącznie opisy posiłków, ich waga oraz nagrania audio.</p>
+        <p><strong>Zanim jakiekolwiek dane zostaną przesłane do usługi AI, aplikacja EchoCal prosi o Twoją wyraźną zgodę (Consensual Disclosure).</strong></p>
+        <p>Nasi partnerzy AI:</p>
+        <ul>
+            <li><strong>Groq Cloud (Modele Llama 3 / Whisper):</strong> Przetwarzanie mowy na tekst i analiza składników.</li>
+            <li><strong>Google Gemini (Modele Gemini Pro/Flash):</strong> Rezerwowa analiza i estymacja wartości odżywczych.</li>
+        </ul>
+        <p>Potwierdzamy, że nasi partnerzy AI zapewniają równy lub wyższy poziom ochrony danych niż EchoCal oraz że dane te nie są wykorzystywane przez nich do trenowania ich własnych modeli AI ani w celach komercyjnych.</p>
+
+        <h2>4. Inni Partnerzy</h2>
+        <ul>
+            <li><strong>Supabase:</strong> Bezpieczne przechowywanie danych (chmura AWS/Google).</li>
+            <li><strong>Google AdMob:</strong> Wyświetlanie reklam.</li>
+            <li><strong>RevenueCat:</strong> Zarządzanie subskrypcjami.</li>
+            <li><strong>Sentry:</strong> Monitorowanie stabilności aplikacji.</li>
+        </ul>
+
+        <h2>5. Przechowywanie i Usuwanie Danych</h2>
+        <p>Twoje dane są przechowywane tak długo, jak posiadasz u nas konto. <span class="highlight">Możesz całkowicie usunąć swoje konto wraz ze wszystkimi danymi bezpośrednio w ustawieniach aplikacji (Sekcja Profil -> Usuń Konto).</span></p>
+
+        <h2>6. Twoje Prawa</h2>
+        <p>Masz prawo do wglądu, sprostowania, usunięcia lub ograniczenia przetwarzania swoich danych osobowych oraz do wycofania zgody na korzystanie z usług AI w ustawieniach aplikacji.</p>
+
+        <h2>7. Kontakt</h2>
+        <p>W razie pytań prosimy o kontakt: <a href="mailto:echocalapp@gmail.com">echocalapp@gmail.com</a>.</p>
+
+        <div class="footer">
+            Ostatnia aktualizacja: 7 kwietnia 2026<br>
+            EchoCal &copy; 2026
+        </div>
+    </div>
+</body>
+</html>
